@@ -97,23 +97,6 @@ impl FilesystemBuilder {
         } else {
             self.base_dir.join(node_path)
         };
-
-        // Don't create the root directory itself if we are skipping root and it matches base_dir
-        // The Python code:
-        // if node.data.is_directory: self._create_directory(...)
-        
-        // If skip_root is true and we are at the root node, final_path is base_dir.
-        // We probably shouldn't try to create base_dir if it exists, but _create_directory handles exist_ok=True.
-        // However, if skip_root is True, we generally want the *contents* of the root to be in base_dir.
-        
-        // Let's stick to the Python logic:
-        // full_path = node.get_full_path()
-        // if skip_root: full_path = Path(*full_path.parts[1:])
-        // target = base_dir / full_path
-        
-        // One edge case: if skip_root is true and we are processing the root node, full_path becomes empty.
-        // target becomes base_dir.
-        // We create base_dir.
         
         if node_borrowed.data.is_directory() {
              self.create_directory(&final_path, &node_borrowed)?;

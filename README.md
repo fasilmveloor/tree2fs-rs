@@ -8,25 +8,30 @@ Now rewritten in Rust 🦀 for blazing speed and safety!
 
 ### From Source
 ```bash
-git clone https://github.com/ABDELLAH-Hallou/tree2fs.git
-cd tree2fs
+git clone https://github.com/fasilmveloor/tree2fs-rs.git
+cd tree2fs-rs
 cargo install --path .
+```
+
+### Automated Installation (Linux/macOS)
+```bash
+curl -fsSL https://raw.githubusercontent.com/fasilmveloor/tree2fs-rs/main/install.sh | bash
 ```
 
 ## Usage
 
 ```bash
 # Create structure from tree file
-tree2fs tree.txt
+tree2fs-rs tree.txt
 
 # Preview without creating (dry run)
-tree2fs tree.txt --dry-run --verbose
+tree2fs-rs tree.txt --dry-run --verbose
 
 # Create in specific directory
-tree2fs tree.txt --base-dir /path/to/project
+tree2fs-rs tree.txt --base-dir /path/to/project
 
 # Include root directory in creation
-tree2fs tree.txt --no-skip-root
+tree2fs-rs tree.txt --no-skip-root
 ```
 
 ## Tree File Format
@@ -55,13 +60,37 @@ project/
 
 ## Development
 
+### Testing
+Run the test suite, including unit tests and integration tests:
 ```bash
-# Run tests
 cargo test
-
-# Run locally
-cargo run -- tree.txt --dry-run
 ```
+
+Run the example API usage:
+```bash
+cargo run --example api_usage
+```
+
+### Release
+
+To release a new version to [crates.io](https://crates.io/):
+
+1. Update the version in `Cargo.toml`.
+2. Commit the changes:
+   ```bash
+   git commit -am "Bump version to x.y.z"
+   ```
+3. Tag the release:
+   ```bash
+   git tag vx.y.z
+   git push origin vx.y.z
+   ```
+4. Publish to crates.io:
+   ```bash
+   cargo publish
+   ```
+
+**Note:** You need to be logged in with `cargo login` before publishing.
 
 ## License
 

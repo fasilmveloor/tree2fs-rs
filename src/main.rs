@@ -3,8 +3,8 @@ use std::path::PathBuf;
 use anyhow::{Context, Result};
 use env_logger::Env;
 
-use tree2fs::parser::TreeParser;
-use tree2fs::builder::FilesystemBuilder;
+use tree2fs_rs::parser::TreeParser;
+use tree2fs_rs::builder::FilesystemBuilder;
 
 #[derive(Parser, Debug)]
 #[command(author, version, about, long_about = None)]

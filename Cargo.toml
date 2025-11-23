@@ -1,7 +1,13 @@
 [package]
-name = "tree2fs"
+name = "tree2fs-rs"
 version = "0.1.0"
 edition = "2021"
+description = "Convert tree-formatted text into filesystem structures."
+license = "MIT"
+repository = "https://github.com/fasilmveloor/tree2fs-rs"
+readme = "README.md"
+keywords = ["filesystem", "tree", "generator", "cli", "structure"]
+categories = ["command-line-utilities", "filesystem"]
 
 [dependencies]
 anyhow = "1.0.100"
@@ -9,3 +15,6 @@ clap = { version = "4.5.53", features = ["derive"] }
 env_logger = "0.11.8"
 log = "0.4.28"
 thiserror = "2.0.17"
+
+[dev-dependencies]
+tempfile = "3.23.0"
